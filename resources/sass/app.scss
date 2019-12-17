@@ -1,0 +1,413 @@
+//reset.scss
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+html{
+  height:100%;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// ==============================
+// 変数
+// ==============================
+$font-color_default:#333;
+$font-color_accent:#fafafa;
+$font-color_hover: #00bfff;
+
+
+$bg-color_base:#fafafa;
+$bg-color_main:#00e1ff;
+$bg-color_accent:#808080;
+
+$site-width: 980px;
+
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_default: 16px;
+$font-size_l: 18px;
+$font-size_xl: 24px;
+$font-size_xxl: 30px;
+$font-size_3l: 38px;
+
+$space_s: 5px;
+$space_m: 10px;
+$space_l: 15px;
+$space_xl: 20px;
+$space_xxl: 30px;
+$space_3l: 40px;
+
+$font-family_default: 'Open Sans', sans-serif;
+
+//レスポンシブ変数
+$pc: 1024px; // PC
+//$tab: 680px; // タブレット
+$sp: 750px;  // スマホ
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+// ==================================
+// base
+// ==================================
+html, body {
+  width: 100%;
+  color: $font-color_default;
+  font-size: $font-size_default;
+  line-height: 1.6;
+  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; // TODO:リファクタ必要（変数にする）
+  text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+  overflow:scroll;
+  background:$bg-color_base;
+  max-height:700px;
+  background:　$bg-color_main;
+  overflow:hidden;
+}
+
+
+p, a {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $font-color_default;
+  text-decoration: none;
+  transition: .3s;
+}
+
+a:hover {
+  color:$font-color_hover;
+  transition: .3s;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+.main{
+  background: $bg-color_main;
+  height:100%;
+
+
+}
+//============================================
+//authフォーム
+//============================================
+.form{
+  overflow:hidden;
+}
+.form__container{
+  background:　$bg-color_main;
+  height: 100%;
+  width:100%;
+  font-family: $font-family_default;
+}
+.form__wrap{
+  width: 480px;
+  margin:0 auto;
+  text-align:center;
+  height:250px;
+  box-sizing:border-box;
+  padding:215px 0px;
+  overflow:hidden;
+  @include sp{
+    width:414px;
+    height:100%;
+  }
+}
+
+.form__input{
+  @include sp{
+    width:100%;
+
+
+  }
+  text-transform: lowercase;
+  overflow:hidden;
+  &__text{
+    width:100%;
+    @include sp{
+      width:80%;
+    }
+  }
+  &__label{
+    float:left;
+    padding:0px 10px;
+    @include sp{
+
+    }
+  }
+}
+.form__check-box{
+  float:left;
+}
+.submit-button{
+  margin-top:16px;
+  width:70%;
+  border-radius:16px;
+}
+
+.todo__wrap{
+  background:#00e1ff;
+  width:100%;
+  height:730px;
+  overflow:hidden;
+}
+.todo__wrap__content{
+  display:flex;
+  justify-content:space-between;
+  box-sizing:border-box;
+  width:100%;
+  padding:40px;
+  @include sp{
+    display:block;
+    padding:0;
+  }
+
+}
+
+
+.btn{
+  background: $bg-color_base;
+  border-radius:3px;
+  margin:8px 10px;
+  @include sp{
+    position:relative;
+    left:40%;
+    margin-bottom:20px;
+  }
+}
+
+//====================================
+//検索フォーム
+//====================================
+.searchBox{
+  margin-bottom:20px;
+}
+
+.list-item{
+  width:100%;
+}
+.searchBox__input{
+  width:90%;
+  margin-bottom:8px;
+}
+
+//===================================
+//リストテーブル
+//===================================
+
+.list{
+  width:1120px;
+  background:#fafafa;
+  border-radius:3px;
+
+  @include sp{
+    width: 95%;
+    margin:0 auto;
+  }
+}
+.list-table{
+  width:100%;
+  height:100%;
+}
+.list-head{
+  width:100%;
+  height:60px;
+  line-height:60px;
+  border-bottom:2px solid #333;
+}
+.list-body{
+  overflow-y: scroll;
+  min-height:60px;
+  max-height:400px;
+
+}
+
+.list-row{
+  width:100%;
+  border-bottom:1px solid #333;
+  height:60px;
+  line-height:60px;
+
+}
+.list-row:nth-child(odd){
+  background: #e5f3ff;
+}
+.todo-item{
+  display:inline-block;
+  padding-right:20px;
+  padding-left:20px;
+  margin-right:5px;
+  margin-left:5px;
+  box-sizing:border-box;
+  @include sp{
+    padding:0px;
+  }
+}
+
+.todo-item__task{
+  width:30%;
+  @include sp{
+    width:30%;
+    padding-left:20px;
+  }
+}
+.todo-item__date{
+  width:30%;
+  @include sp{
+    width:40%;
+  }
+}
+.todo-item__opt{
+  width:30%;
+  @include sp{
+    width:30%;
+    position:relative;
+    left:500px;
+    top:-60px;
+  }
+}
+.todo-item__opt br{
+  display:none;
+  @include sp{
+    display:block;
+  }
+}
+
+.list--button{
+  height:30px;
+  line-height:25px;
+  width:70px;
+  margin:0px 5px;
+  border-radius:3px;
+  @include sp{
+    width:80px;
+
+  }
+}
+
+.task_done{
+  background:#808080 !important;
+  color:#fafafa !important;
+}
+.done_mark{
+  border-radius:10px;
+  padding:3px;
+}
+
+
+
+//======================================
+//メインコンテンツ Todo画面 追加フォーム
+//======================================
+ .form-area{
+  overflow:hidden;
+  width:50%;
+  text-align:center;
+  padding:10px;
+  &--pc{
+    @include sp{
+      display:none;
+    }
+  }
+  &--sp{
+    display:none;
+    @include sp{
+      display:inline;
+      width:100%;
+      position:relative;
+    }
+  }
+}
+.inputArea{
+  width:100%;
+  margin:10px;
+}
+.inputText{
+  width:100%;
+  margin-bottom:8px;
+  @include sp{
+    width:80%;
+  }
+}
+
+
+
+
+//====================================
+//utility
+//====================================
+
+.none{
+  display:none;
+}
+.error{
+  color: #fe1235;
+  display:none;
+}
+
+.red{
+  background:#ff0029;
+  color:#fafafa;
+}
+.blue{
+  background:#004fff;
+  color:#fafafa;
+}
